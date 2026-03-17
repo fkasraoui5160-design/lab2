@@ -3,35 +3,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     android:padding="32dp"
-    android:background="#1A1A2E">
+    android:gravity="center"
+    android:background="#0D0D1A">
 
     <TextView
-        android:id="@+id/text_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="72sp"
-        android:textColor="#E94560"
+        android:text="Calcul d'Impôt"
+        android:textSize="28sp"
+        android:textColor="#FF6B6B"
         android:textStyle="bold"
-        android:layout_marginBottom="48dp" />
+        android:layout_marginBottom="32dp"/>
+
+    <EditText
+        android:id="@+id/input_surface"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Surface (m²)"
+        android:textColorHint="#888888"
+        android:textColor="#FFFFFF"
+        android:inputType="numberDecimal"
+        android:backgroundTint="#FF6B6B"
+        android:paddingStart="12dp"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/input_pieces"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Nombre de pièces"
+        android:textColorHint="#888888"
+        android:textColor="#FFFFFF"
+        android:inputType="number"
+        android:backgroundTint="#FF6B6B"
+        android:paddingStart="12dp"
+        android:layout_marginBottom="16dp"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_piscine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Piscine (+100 DH)"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:buttonTint="#FF6B6B"
+        android:layout_marginBottom="24dp"/>
 
     <Button
-        android:id="@+id/button_toast"
-        android:layout_width="280dp"
-        android:layout_height="64dp"
-        android:text="Afficher un message"
-        android:textSize="18sp"
-        android:backgroundTint="#E94560"
-        android:layout_marginBottom="20dp" />
+        android:id="@+id/button_calcul"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="CALCULER"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#FF6B6B"
+        android:layout_marginBottom="24dp"/>
 
-    <Button
-        android:id="@+id/button_count"
-        android:layout_width="280dp"
-        android:layout_height="64dp"
-        android:text="Incrémenter le compteur"
-        android:textSize="18sp"
-        android:backgroundTint="#0F3460" />
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textColor="#FF6B6B"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="#1A1A2E"/>
 
 </LinearLayout>

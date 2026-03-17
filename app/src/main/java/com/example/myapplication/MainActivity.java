@@ -1,30 +1,46 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    int count = 0;
+    private EditText surfaceInput, piecesInput;
+    private CheckBox piscineCheckbox;
+    private TextView resultView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView textCount = findViewById(R.id.text_count);
-        Button buttonToast = findViewById(R.id.button_toast);
-        Button buttonCount = findViewById(R.id.button_count);
+        surfaceInput = findViewById(R.id.input_surface);
+        piecesInput = findViewById(R.id.input_pieces);
+        piscineCheckbox = findViewById(R.id.checkbox_piscine);
+        resultView = findViewById(R.id.result);
 
-        buttonToast.setOnClickListener(v ->
-                Toast.makeText(this, "Bonjour !", Toast.LENGTH_SHORT).show()
-        );
+        findViewById(R.id.button_calcul).setOnClickListener(v -> calculer());
+    }
 
-        buttonCount.setOnClickListener(v ->
-                textCount.setText(String.valueOf(++count))
-        );
+    private void calculer() {
+        String s = surfaceInput.getText().toString();
+        String p = piecesInput.getText().toString();
+
+        if (s.isEmpty() || p.isEmpty()) {
+            Toast.makeText(this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        double surface = Double.parseDouble(s);
+        int pieces = Integer.parseInt(p);
+        boolean piscine = piscineCheckbox.isChecked();
+
+        double total = (surface * 2) + (pieces * 50) + (piscine ? 100 : 0);
+
+        resultView.setText("Impôt total : " + total + " DH");
     }
 }
